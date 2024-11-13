@@ -1,0 +1,16 @@
+[Unit]
+Description=Set correct SELinux labels in /sys
+Documentation=man:tmpfiles.d(5) man:systemd-tmpfiles(8)
+
+DefaultDependencies=no
+Before=sysinit.target local-fs-pre.target
+Wants=local-fs-pre.target
+Conflicts=shutdown.target initrd-switch-root.target
+Before=shutdown.target initrd-switch-root.target
+ConditionSecurity=selinux
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=systemd-tmpfiles --prefix=/sys --create --boot
+SuccessExitStatus=DATAERR CANTCREAT
