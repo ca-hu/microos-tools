@@ -2,8 +2,6 @@ name: MicroOS in QEMU
 on:
   push:
     branches: [ master-test1231012 ]
-  pull_request:
-    branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
