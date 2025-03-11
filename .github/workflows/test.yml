@@ -1,7 +1,7 @@
 name: MicroOS in QEMU
 on:
   push:
-    branches: [ master ]
+    branches: [ master-test1231012 ]
   pull_request:
     branches: [ master ]
 jobs:
